@@ -1,86 +1,114 @@
-# CipherStack — Cascade Encryption Builder
+# CipherStack
 
-A modular cipher pipeline application that allows you to chain multiple encryption/decryption algorithms together to create complex encryption workflows.
+CipherStack is a polished cipher-composition studio built with vanilla HTML, CSS, JavaScript, and a small Node.js server. It lets you chain multiple classical and utility ciphers into a single pipeline, configure each stage, switch between encrypt/decrypt modes, and inspect every transformation step in a visual interface.
+
+## Highlights
+
+- Drag-and-drop pipeline builder for composing cipher chains
+- Encrypt and decrypt modes with live pipeline execution
+- Step-by-step transform log for each stage in the chain
+- Import/export pipeline JSON for sharing saved setups
+- Responsive UI with a premium editorial-style frontend
+- Zero frontend frameworks and no external runtime dependencies
+
+## Included Ciphers
+
+- Caesar Cipher
+- XOR Cipher
+- Vigenere
+- Rail Fence
+- Columnar Transposition
+- Atbash
+- Base64
+- Reverse String
+- Substitution
+
+## Tech Stack
+
+- Frontend: vanilla HTML, CSS, JavaScript
+- Backend: Node.js HTTP server
+- Deployment: works locally and on platforms like Railway
+
+## Requirements
+
+- Node.js 14 or newer
+- npm
+- A modern browser such as Chrome, Edge, or Firefox
+
+Optional:
+
+- Railway account for deployment
+- GitHub repository for version control and Railway integration
+
+## Models Used
+
+This project itself does not require any LLM or AI model to run.
+
+For development assistance and frontend iteration, the interface and code updates were created with help from:
+
+- OpenAI Codex
+- GPT-5-based coding assistance in the Codex environment
 
 ## Project Structure
 
+```text
+vyrothoncodex/
+|-- public/
+|   |-- index.html
+|   |-- style.css
+|   `-- app.js
+|-- server.js
+|-- package.json
+`-- README.md
 ```
-cipherstack/
-├── public/
-│   ├── index.html       # Main HTML document
-│   ├── style.css        # All styling
-│   └── app.js          # All application logic
-├── server.js           # Node.js HTTP server
-├── package.json        # Project metadata & dependencies
-├── .gitignore          # Git ignore rules
-└── README.md           # This file
-```
 
-## Features
+## Run Locally
 
-- **9 Cipher Algorithms**: Caesar, XOR, Vigenere, Rail Fence, Columnar Transposition, Atbash, Base64, Reverse, Substitution
-- **Pipeline Builder**: Chain multiple ciphers together for complex encryption
-- **Encrypt/Decrypt Modes**: Switch between encryption and decryption workflows
-- **Interactive UI**: Real-time configuration and visualization
-- **Import/Export**: Save and load cipher pipelines as JSON
-- **Step-by-Step Logging**: View each transformation in the pipeline
-
-## Installation
+Start the app:
 
 ```bash
-# Clone or extract the project
-cd cipherstack
-
-# Install dependencies (if any are added in future)
-npm install
-```
-
-## Running Locally
-
-```bash
-# Start the server
 npm start
-
-# The app will be available at http://localhost:3000
 ```
 
-## Deploying to Railway
+Then open:
 
-1. **Create a Railway Account**: Visit [railway.app](https://railway.app)
+```text
+http://localhost:3000
+```
 
-2. **Connect Your Repository**:
-   - Push this project to GitHub
-   - Create a new project in Railway
-   - Connect to your GitHub repository
-
-3. **Railway Configuration**:
-   - Railway automatically detects Node.js projects
-   - The `start` script in `package.json` will be used
-   - Environment variable: `PORT` is automatically set
-
-4. **Deploy**:
-   - Push changes to your repository
-   - Railway will automatically deploy on push
-   - Your app will be live at the provided Railway URL
+If you are iterating on the UI, this server is configured to avoid asset caching so CSS/JS changes show up immediately after a refresh.
 
 ## How to Use
 
-1. **Add Ciphers**: Click any cipher from the Cipher Library (left panel) to add it to your pipeline
-2. **Configure**: Expand each node and adjust settings (key, shift amount, etc.)
-3. **Run Pipeline**: Enter your plaintext, click the Encrypt button, and see results
-4. **View Logs**: Check the right panel to see step-by-step transformations
-5. **Export**: Click "Export" to save your pipeline configuration
-6. **Import**: Click "Import" to load a saved pipeline
+1. Add ciphers from the library by clicking or dragging them into the pipeline.
+2. Reorder stages with drag-and-drop.
+3. Configure any stage that exposes settings.
+4. Enter input text in the input panel.
+5. Run the pipeline in encrypt or decrypt mode.
+6. Review the transform log on the right.
+7. Export the pipeline to JSON or import a saved one later.
 
-## Environment Variables
+## Deployment
 
-- `PORT` (default: 3000): Port for the server to listen on
+This project is simple to deploy because it uses a single Node server.
 
-## Technologies
+### Railway
 
-- **Frontend**: Vanilla JavaScript, HTML, CSS Grid
-- **Backend**: Node.js (native HTTP module)
-- **No external dependencies**: Everything runs in vanilla JS for minimal bundle size
+1. Push the project to GitHub.
+2. Create a new Railway project.
+3. Connect the GitHub repository.
+4. Railway will detect the Node app automatically.
+5. Deploy using the existing `npm start` script.
+
+Environment variable:
+
+- `PORT`: supplied automatically by Railway in production, defaults to `3000` locally
+
+## Notes
+
+- The app currently serves static assets from the `public/` folder.
+- The local server uses `no-store` cache headers to make frontend iteration easier.
+- The project is intentionally lightweight and framework-free.
 
 ## License
 
