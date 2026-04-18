@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CipherStack - Cascade Encryption Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell" id="app">
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="44" height="44" rx="14" stroke="currentColor" stroke-width="2"/>
+            <path d="M23 32h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M32 23v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="32" cy="32" r="7" fill="currentColor" opacity="0.15"/>
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">Cipher composition studio</p>
+          <h1 class="brand-title">CipherStack</h1>
+          <p class="brand-copy">Build elegant multi-step encryption chains with live previews, rich logs, and drag-and-drop composition.</p>
+        </div>
+      </div>
+
+      <div class="topbar-controls">
+        <div class="mode-group" role="tablist" aria-label="Encryption mode">
+          <button class="mode-btn mode-active" id="btn-enc" type="button" onclick="setMode('encrypt')">Encrypt</button>
+          <button class="mode-btn" id="btn-dec" type="button" onclick="setMode('decrypt')">Decrypt</button>
+        </div>
+        <div class="hdr-btns">
+          <button class="hdr-btn" type="button" onclick="exportPipeline()">Export</button>
+          <button class="hdr-btn" type="button" onclick="openImport()">Import</button>
+          <button class="hdr-btn hdr-btn-danger" type="button" onclick="clearPipeline()">Clear</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero-strip">
+      <div class="hero-panel">
+        <p class="hero-label">Pipeline health</p>
+        <div class="stats-inline">
+          <div class="stat-pill">
+            <span class="stat-pill-value" id="stat-n">3</span>
+            <span class="stat-pill-label">Stages</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-value" id="stat-c">3</span>
+            <span class="stat-pill-label">Configurable</span>
+          </div>
+          <div class="stat-pill stat-pill-wide" id="stat-v"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="workspace-grid">
+      <aside class="panel panel-library">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Library</p>
+            <h2 class="panel-title">Cipher Deck</h2>
+          </div>
+          <p class="panel-note">Drag or click to add</p>
+        </div>
+        <div class="lib-scroll" id="lib"></div>
+      </aside>
+
+      <main class="canvas-shell">
+        <section class="io-bar">
+          <div class="io-sect">
+            <div class="io-lbl" id="inp-lbl-wrap">
+              <span id="inp-lbl" class="io-title">
+                <span class="io-dot io-dot-live"></span>
+                Plaintext Input
+              </span>
+            </div>
+            <textarea class="io-area" id="inp-area" placeholder="Enter plaintext to encrypt..." spellcheck="false">Hello, CipherStack!</textarea>
+          </div>
+
+          <div class="run-col">
+            <button class="run-btn run-btn-enc" id="run-btn" type="button" onclick="runPipeline()">Run</button>
+            <div class="run-lbl" id="run-lbl">Encrypt</div>
+          </div>
+
+          <div class="io-sect">
+            <div class="io-lbl">
+              <span id="out-lbl" class="io-title">
+                <span class="io-dot io-dot-live"></span>
+                Encrypted Output
+              </span>
+              <button class="copy-btn" type="button" onclick="copyOut()">Copy</button>
+            </div>
+            <textarea class="io-area out-enc" id="out-area" readonly placeholder="Output will appear here..."></textarea>
+          </div>
+        </section>
+
+        <section class="canvas-panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">Canvas</p>
+              <h2 class="panel-title">Pipeline Builder</h2>
+            </div>
+            <p class="panel-note">Minimum 3 stages required</p>
+          </div>
+
+          <div class="canvas-inner" id="canvas-inner">
+            <div class="dropzone-intro" id="dropzone-intro">
+              <p class="dropzone-kicker">Drag and drop to compose</p>
+              <h3 class="dropzone-title">Build a chain that feels intentional.</h3>
+              <p class="dropzone-copy">Start by dropping a cipher anywhere in this canvas. Every stage can be opened, configured, reordered, or removed without losing the premium feel.</p>
+            </div>
+
+            <div class="empty-state" id="empty-state">
+              <div class="empty-badge">Empty pipeline</div>
+              <p class="empty-title">Drop ciphers here to start designing your cascade.</p>
+              <p class="empty-copy">You can still click any library card if you prefer a faster flow.</p>
+            </div>
+
+            <div class="pipe" id="pipe" style="display:none"></div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="panel panel-log">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Inspect</p>
+            <h2 class="panel-title">Transform Log</h2>
+          </div>
+          <p class="panel-note">Step-by-step trace</p>
+        </div>
+        <div class="log-body" id="log-body">
+          <div class="log-empty">
+            <div class="log-empty-badge">Awaiting run</div>
+            <p class="log-empty-title">Every stage transformation will appear here.</p>
+            <p class="log-empty-copy">Run the pipeline to see input/output snapshots for each cipher in the chain.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

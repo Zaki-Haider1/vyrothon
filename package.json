@@ -1,0 +1,21 @@
+{
+  "name": "cipherstack",
+  "version": "1.0.0",
+  "description": "Cascade Encryption Builder - A modular cipher pipeline application",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "cipher",
+    "encryption",
+    "cryptography"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
