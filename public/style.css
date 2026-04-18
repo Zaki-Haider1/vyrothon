@@ -40,9 +40,9 @@ body {
   color: var(--text);
   font-family: var(--sans);
   background:
-    radial-gradient(circle at top left, rgba(216, 179, 106, 0.18), transparent 28%),
-    radial-gradient(circle at top right, rgba(131, 165, 140, 0.16), transparent 24%),
-    linear-gradient(135deg, #120f0d 0%, #191512 48%, #100e0c 100%);
+    radial-gradient(circle at top left, rgba(216, 179, 106, 0.08), transparent 22%),
+    radial-gradient(circle at top right, rgba(131, 165, 140, 0.06), transparent 18%),
+    linear-gradient(135deg, #131110 0%, #161311 48%, #110f0e 100%);
 }
 
 button, input, textarea {
@@ -89,7 +89,7 @@ button {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(255,255,255,0.06), transparent 35%, transparent 65%, rgba(216,179,106,0.08));
+  background: linear-gradient(135deg, rgba(255,255,255,0.025), transparent 40%, transparent 70%, rgba(216,179,106,0.03));
 }
 
 .brand-block {
@@ -108,7 +108,7 @@ button {
   display: grid;
   place-items: center;
   color: var(--accent);
-  background: linear-gradient(160deg, rgba(216, 179, 106, 0.16), rgba(255, 255, 255, 0.03));
+  background: rgba(216, 179, 106, 0.06);
   border: 1px solid rgba(216, 179, 106, 0.22);
   flex-shrink: 0;
 }
@@ -216,13 +216,13 @@ button {
 
 .mode-active {
   color: #201912;
-  background: linear-gradient(135deg, #f0d39b, #d8b36a);
+  background: #e2c07a;
   box-shadow: 0 10px 24px rgba(216, 179, 106, 0.24);
 }
 
 .mode-btn.mode-danger-active {
   color: #fff7f4;
-  background: linear-gradient(135deg, #b5594f, #d88272);
+  background: #c76f65;
   box-shadow: 0 10px 24px rgba(209, 109, 101, 0.2);
 }
 
@@ -272,14 +272,12 @@ button {
   z-index: 1;
   padding: 14px 16px;
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .hero-panel-primary {
-  background:
-    radial-gradient(circle at top right, rgba(216, 179, 106, 0.14), transparent 38%),
-    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  background: rgba(216, 179, 106, 0.04);
 }
 
 .hero-label {
@@ -481,7 +479,7 @@ button {
   padding: 16px;
   border-radius: 0;
   border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  background: rgba(255,255,255,0.025);
   cursor: grab;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -612,7 +610,7 @@ button {
   overflow: hidden;
   border-radius: 0;
   border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  background: rgba(255,255,255,0.03);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -798,7 +796,7 @@ button {
 .conn-line {
   width: 2px;
   height: 26px;
-  background: linear-gradient(to bottom, rgba(216,179,106,0.42), rgba(255,255,255,0.08));
+  background: rgba(216,179,106,0.28);
   border-radius: 0;
 }
 
@@ -874,7 +872,7 @@ button {
   height: 92px;
   border-radius: 0;
   border: 1px solid rgba(216, 179, 106, 0.36);
-  background: linear-gradient(135deg, #f1d9a8, #d2a55a);
+  background: #e0bd78;
   color: #271e16;
   font-family: var(--display);
   font-size: 1.2rem;
@@ -886,7 +884,7 @@ button {
 }
 
 .run-btn.run-btn-dec {
-  background: linear-gradient(135deg, #d99185, #ba645c);
+  background: #c9786d;
   color: #fff9f7;
   border-color: rgba(209, 109, 101, 0.42);
 }
@@ -1048,7 +1046,7 @@ button {
 }
 
 .mbtn.pri {
-  background: linear-gradient(135deg, #f1d9a8, #d2a55a);
+  background: #e0bd78;
   color: #241a12;
   border-color: rgba(216, 179, 106, 0.32);
 }
