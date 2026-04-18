@@ -710,7 +710,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding-top: 4px;
+  padding-top: 8px;
 }
 
 .cfg-lbl {
