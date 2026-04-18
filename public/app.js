@@ -326,9 +326,6 @@ function createDropMarker(index) {
 function render() {
   const pipe = document.getElementById("pipe");
   const empty = document.getElementById("empty-state");
-  const intro = document.getElementById("dropzone-intro");
-
-  intro.style.display = "block";
   if (nodes.length === 0) {
     pipe.style.display = "none";
     empty.style.display = "flex";
